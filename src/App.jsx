@@ -776,7 +776,7 @@ function App() {
               {/* Author with GitHub Link */}
               <div className="pt-1 sm:pt-2">
                 <a 
-                  href="https://github.com/IsabekSultonbekov" 
+                  href="https://github.com/sultonbekov" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="group inline-flex items-center gap-2 text-[8px] sm:text-[9px] tracking-[0.3em] uppercase text-white/20 hover:text-blue-400/40 font-extralight transition-all duration-300"
