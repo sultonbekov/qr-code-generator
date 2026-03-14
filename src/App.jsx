@@ -403,21 +403,21 @@ function App() {
           >
           <button
             onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="group flex items-center gap-3 px-6 py-3 bg-white/[0.06] border-2 border-blue-500/25 rounded-full hover:bg-white/[0.1] hover:border-blue-500/40 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all duration-300"
+            className="group flex items-center gap-3 px-8 py-4 bg-white/[0.08] border-2 border-blue-500/40 rounded-full hover:bg-white/[0.12] hover:border-blue-500/60 hover:shadow-[0_0_25px_rgba(59,130,246,0.25)] transition-all duration-300 active:scale-95"
           >
             {/* Globe Icon */}
-            <svg className="w-6 h-6 text-blue-400/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             
             {/* Language Name */}
-            <span className="text-sm font-medium text-white/90 tracking-wide min-w-[80px] text-left">
+            <span className="text-base font-semibold text-white tracking-wide min-w-[90px] text-left">
               {t.langName}
             </span>
             
             {/* Dropdown Arrow */}
             <motion.svg 
-              className="w-4 h-4 text-blue-400/60 group-hover:text-blue-400/90 transition-colors" 
+              className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -475,60 +475,41 @@ function App() {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="w-full max-w-md sm:max-w-2xl relative px-4 sm:px-0"
           >
-            {/* Glass Card - No Rotating Border */}
-            <div className="relative bg-[#0a0e27]/40 rounded-2xl border-[3px] border-blue-500/25 shadow-[0_0_40px_rgba(56,189,248,0.15)]">
-              <GlassSurface
-                width="100%"
-                height="auto"
-                borderRadius={16}
-                brightness={8}
-                opacity={0.2}
-                blur={18}
-                displace={0.4}
-                backgroundOpacity={0.05}
-                saturation={1.2}
-                distortionScale={-180}
-                redOffset={0}
-                greenOffset={10}
-                blueOffset={20}
-                className="glass-main-card"
-                style={{ border: 'none', boxShadow: '0 0 80px rgba(59, 130, 246, 0.06), inset 0 0 60px rgba(59, 130, 246, 0.02)' }}
-              >
-            <div className="flex flex-col items-center px-6 py-6 sm:px-10 sm:py-8 md:px-12 md:py-10 gap-3 sm:gap-6">
+            <div className="flex flex-col items-center px-6 py-6 sm:px-10 sm:py-8 md:px-12 md:py-10 gap-5 sm:gap-6">
 
               {/* Title */}
-              <h1 className="text-lg sm:text-3xl md:text-4xl font-extralight tracking-[0.15em] sm:tracking-[0.3em] uppercase text-white/90 text-center">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-[0.15em] sm:tracking-[0.3em] uppercase text-white/90 text-center">
                 {t.title}
               </h1>
 
               {/* Divider */}
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
+              <div className="w-16 h-[2px] bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
 
               {/* Tab Switcher: URL | File */}
               <div className="w-full">
                 <div className="flex rounded-lg overflow-hidden border-2 border-blue-500/20 mb-3">
                   <button
                     onClick={() => { setInputMode('url'); clearFile(); setUrlError(''); }}
-                    className={`flex-1 flex items-center justify-center gap-1 py-2.5 text-[9px] sm:text-[11px] uppercase tracking-wider font-medium transition-all duration-300 ${
+                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
                       inputMode === 'url'
                         ? 'bg-blue-500/20 text-blue-200 border-r border-blue-500/20'
                         : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06] border-r border-blue-500/20'
                     }`}
                   >
-                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg>
                     {t.tabUrl}
                   </button>
                   <button
                     onClick={() => { setInputMode('file'); setUrl(''); setUrlError(''); }}
-                    className={`flex-1 flex items-center justify-center gap-1 py-2.5 text-[9px] sm:text-[11px] uppercase tracking-wider font-medium transition-all duration-300 ${
+                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
                       inputMode === 'file'
                         ? 'bg-blue-500/20 text-blue-200'
                         : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06]'
                     }`}
                   >
-                    <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     {t.tabFile}
@@ -551,7 +532,7 @@ function App() {
                       }}
                       onKeyDown={(e) => e.key === 'Enter' && generateQR()}
                       placeholder={t.placeholder}
-                      className={`w-full bg-white/[0.06] border-2 rounded-lg px-3 py-2 text-white text-[10px] sm:text-xs tracking-wide placeholder:text-white/30 focus:outline-none transition-all duration-300 font-normal ${
+                      className={`w-full bg-white/[0.08] border-2 rounded-lg px-4 py-3 text-white text-xs sm:text-sm tracking-wide placeholder:text-white/30 focus:outline-none transition-all duration-300 font-normal ${
                         urlError 
                           ? 'border-red-400/50 focus:border-red-400/70' 
                           : 'border-blue-500/20 focus:border-blue-500/50 focus:bg-white/[0.08] focus:shadow-[0_0_15px_rgba(56,189,248,0.1)]'
@@ -645,7 +626,7 @@ function App() {
                   <button
                     key={style.id}
                     onClick={() => setSelectedStyle(style)}
-                    className={`group relative p-1 transition-all duration-300 rounded-full ${
+                    className={`group relative p-2 transition-all duration-300 rounded-full ${
                       selectedStyle.id === style.id
                         ? 'scale-125 ring-2 ring-offset-2 ring-offset-transparent'
                         : 'hover:scale-110'
@@ -654,7 +635,7 @@ function App() {
                     title={STYLE_NAMES[lang][style.key]}
                   >
                     <div
-                      className="w-7 h-7 sm:w-9 sm:h-9 rounded-full cursor-pointer transition-all duration-300"
+                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-full cursor-pointer transition-all duration-300"
                       style={{
                         background: style.darkColor,
                         boxShadow: selectedStyle.id === style.id ? `0 0 15px ${style.darkColor}70, 0 0 30px ${style.darkColor}30` : `0 2px 8px ${style.darkColor}40`,
@@ -669,7 +650,7 @@ function App() {
               <button
                 onClick={generateQR}
                 disabled={!url.trim() || isGenerating || isUploading}
-                className="w-full px-6 py-2.5 border-2 border-blue-500/30 text-[10px] tracking-[0.15em] uppercase text-blue-200/80 font-medium hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed rounded-md active:scale-95"
+                className="w-full px-10 py-4 border-2 border-blue-500/50 bg-blue-500/10 text-sm tracking-[0.2em] uppercase text-white font-bold hover:text-white hover:border-blue-500/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-500 disabled:opacity-30 disabled:cursor-not-allowed rounded-lg active:scale-95"
               >
                 {isGenerating ? t.generating : t.generate}
               </button>
@@ -731,36 +712,36 @@ function App() {
                       {STYLE_NAMES[lang][selectedStyle.key]}
                     </p>
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                    <div className="flex flex-col sm:flex-row gap-3 w-full">
                       <motion.button
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         onClick={downloadQR}
-                        className="group relative px-8 sm:px-10 py-3 sm:py-3.5 border-2 border-blue-500/40 bg-blue-500/5 text-[11px] sm:text-xs tracking-[0.25em] uppercase text-blue-200 font-semibold hover:text-white hover:border-blue-500/60 hover:bg-blue-500/15 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)] transition-all duration-500 rounded-lg overflow-hidden"
+                        className="group relative px-10 py-4 border-2 border-blue-500/50 bg-blue-500/15 text-sm tracking-[0.2em] uppercase text-white font-bold hover:text-white hover:border-blue-500/70 hover:bg-blue-500/25 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-500 rounded-lg overflow-hidden active:scale-95"
                       >
-                        <span className="relative z-10 flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="relative z-10 flex items-center gap-2.5">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                           </svg>
                           {t.download}
                         </span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       </motion.button>
                       <motion.button
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                         onClick={resetForm}
-                        className="group relative px-8 sm:px-10 py-3 sm:py-3.5 border-2 border-white/20 bg-white/[0.03] text-[11px] sm:text-xs tracking-[0.25em] uppercase text-white/70 font-semibold hover:text-white hover:border-white/40 hover:bg-white/[0.08] transition-all duration-500 rounded-lg overflow-hidden"
+                        className="group relative px-10 py-4 border-2 border-white/30 bg-white/[0.05] text-sm tracking-[0.2em] uppercase text-white/80 font-bold hover:text-white hover:border-white/50 hover:bg-white/[0.12] transition-all duration-500 rounded-lg overflow-hidden active:scale-95"
                       >
-                        <span className="relative z-10 flex items-center gap-2">
-                          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="relative z-10 flex items-center gap-2.5">
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                           </svg>
                           {t.createAnother}
                         </span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       </motion.button>
                     </div>
                   </motion.div>
@@ -810,8 +791,6 @@ function App() {
                 </a>
               </div>
 
-            </div>
-          </GlassSurface>
             </div>
           </motion.div>
         </div>
