@@ -487,29 +487,29 @@ function App() {
 
               {/* Tab Switcher: URL | File */}
               <div className="w-full">
-                <div className="flex rounded-lg overflow-hidden border-2 border-blue-500/20 mb-3">
+                <div className="flex rounded-lg overflow-hidden border-2 border-blue-500/30 mb-3">
                   <button
                     onClick={() => { setInputMode('url'); clearFile(); setUrlError(''); }}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
+                    className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-[10px] sm:text-xs uppercase tracking-wide font-bold transition-all duration-300 ${
                       inputMode === 'url'
                         ? 'bg-blue-500/20 text-blue-200 border-r border-blue-500/20'
                         : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06] border-r border-blue-500/20'
                     }`}
                   >
-                    <svg className="w-4 h-4 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
                     </svg>
                     {t.tabUrl}
                   </button>
                   <button
                     onClick={() => { setInputMode('file'); setUrl(''); setUrlError(''); }}
-                    className={`flex-1 flex items-center justify-center gap-2 py-3.5 text-[11px] sm:text-xs uppercase tracking-wider font-semibold transition-all duration-300 ${
+                    className={`flex-1 flex items-center justify-center gap-1.5 py-2.5 text-[10px] sm:text-xs uppercase tracking-wide font-bold transition-all duration-300 ${
                       inputMode === 'file'
                         ? 'bg-blue-500/20 text-blue-200'
                         : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06]'
                     }`}
                   >
-                    <svg className="w-4 h-4 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                     {t.tabFile}
@@ -621,12 +621,12 @@ function App() {
               </div>
 
               {/* Style Selector - Only Color Dots */}
-              <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap">
+              <div className="flex items-center justify-center gap-1.5 sm:gap-3 flex-wrap">
                 {QR_STYLES.map((style) => (
                   <button
                     key={style.id}
                     onClick={() => setSelectedStyle(style)}
-                    className={`group relative p-2 transition-all duration-300 rounded-full ${
+                    className={`group relative p-1 transition-all duration-300 rounded-full ${
                       selectedStyle.id === style.id
                         ? 'scale-125 ring-2 ring-offset-2 ring-offset-transparent'
                         : 'hover:scale-110'
@@ -635,10 +635,10 @@ function App() {
                     title={STYLE_NAMES[lang][style.key]}
                   >
                     <div
-                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-full cursor-pointer transition-all duration-300"
+                      className="w-9 h-9 sm:w-11 sm:h-11 rounded-full cursor-pointer transition-all duration-300 border-2 border-white/20"
                       style={{
                         background: style.darkColor,
-                        boxShadow: selectedStyle.id === style.id ? `0 0 15px ${style.darkColor}70, 0 0 30px ${style.darkColor}30` : `0 2px 8px ${style.darkColor}40`,
+                        boxShadow: selectedStyle.id === style.id ? `0 0 20px ${style.darkColor}90, 0 0 40px ${style.darkColor}50` : `0 3px 10px ${style.darkColor}60`,
                         borderColor: selectedStyle.id === style.id ? style.darkColor : 'rgba(255,255,255,0.2)'
                       }}
                     />
@@ -650,7 +650,7 @@ function App() {
               <button
                 onClick={generateQR}
                 disabled={!url.trim() || isGenerating || isUploading}
-                className="w-full px-10 py-4 border-2 border-blue-500/50 bg-blue-500/10 text-sm tracking-[0.2em] uppercase text-white font-bold hover:text-white hover:border-blue-500/70 hover:bg-blue-500/20 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-all duration-500 disabled:opacity-30 disabled:cursor-not-allowed rounded-lg active:scale-95"
+                className="w-full px-8 py-3.5 border-3 border-blue-500/60 bg-blue-500/15 text-xs tracking-[0.15em] uppercase text-white font-black hover:text-white hover:border-blue-500/80 hover:bg-blue-500/25 hover:shadow-[0_0_35px_rgba(59,130,246,0.4)] transition-all duration-500 disabled:opacity-30 disabled:cursor-not-allowed rounded-lg active:scale-95"
               >
                 {isGenerating ? t.generating : t.generate}
               </button>
