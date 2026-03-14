@@ -13,6 +13,10 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   background: #0a0e27;
   color: #e0e6ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 #root {

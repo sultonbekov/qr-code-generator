@@ -669,7 +669,7 @@ function App() {
               <button
                 onClick={generateQR}
                 disabled={!url.trim() || isGenerating || isUploading}
-                className="w-full sm:w-auto px-10 sm:px-16 py-3 sm:py-3.5 border-2 border-cyan-400/30 text-[11px] sm:text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-cyan-100/80 font-medium hover:text-white hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed rounded-md"
+                className="w-full sm:w-auto px-6 sm:px-10 py-2.5 sm:py-3 border-2 border-cyan-400/30 text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-cyan-100/80 font-medium hover:text-white hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed rounded-md"
               >
                 {isGenerating ? t.generating : t.generate}
               </button>
