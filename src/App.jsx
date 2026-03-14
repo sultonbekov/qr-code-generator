@@ -8,7 +8,7 @@ import './App.css';
 
 const QR_STYLES = [
   { id: 1, key: 'classic', darkColor: '#ffffff', lightColor: '#0a0e27', margin: 2 },
-  { id: 2, key: 'neonBlue', darkColor: '#00d4ff', lightColor: '#0a0e27', margin: 2 },
+  { id: 2, key: 'neonBlue', darkColor: '#3b82f6', lightColor: '#0a0e27', margin: 2 },
   { id: 3, key: 'purpleGlow', darkColor: '#a855f7', lightColor: '#0f0520', margin: 2 },
   { id: 4, key: 'emerald', darkColor: '#10b981', lightColor: '#021a0f', margin: 2 },
   { id: 5, key: 'sunset', darkColor: '#f97316', lightColor: '#1a0800', margin: 2 },
@@ -118,7 +118,7 @@ const LANGS = {
 function App() {
   const [url, setUrl] = useState('');
   const [lang, setLang] = useState('en');
-  const [selectedStyle, setSelectedStyle] = useState(QR_STYLES[0]);
+  const [selectedStyle, setSelectedStyle] = useState(QR_STYLES[1]);
   const [qrDataUrl, setQrDataUrl] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -403,10 +403,10 @@ function App() {
           >
           <button
             onClick={() => setShowLangDropdown(!showLangDropdown)}
-            className="group flex items-center gap-3 px-6 py-3 bg-white/[0.06] border-2 border-cyan-400/25 rounded-full hover:bg-white/[0.1] hover:border-cyan-400/40 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all duration-300"
+            className="group flex items-center gap-3 px-6 py-3 bg-white/[0.06] border-2 border-blue-500/25 rounded-full hover:bg-white/[0.1] hover:border-blue-500/40 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)] transition-all duration-300"
           >
             {/* Globe Icon */}
-            <svg className="w-6 h-6 text-cyan-300/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6 text-blue-400/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             
@@ -417,7 +417,7 @@ function App() {
             
             {/* Dropdown Arrow */}
             <motion.svg 
-              className="w-4 h-4 text-cyan-300/60 group-hover:text-cyan-300/90 transition-colors" 
+              className="w-4 h-4 text-blue-400/60 group-hover:text-blue-400/90 transition-colors" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"
@@ -436,7 +436,7 @@ function App() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -10, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="absolute top-full mt-2 left-0 right-0 bg-[#0a0e27]/95 backdrop-blur-xl border-2 border-cyan-400/30 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(56,189,248,0.2)] z-[110]"
+                className="absolute top-full mt-2 left-0 right-0 bg-[#0a0e27]/95 backdrop-blur-xl border-2 border-blue-500/30 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(56,189,248,0.2)] z-[110]"
               >
                 {Object.keys(LANGS).map((l) => (
                   <button
@@ -447,18 +447,18 @@ function App() {
                     }}
                     className={`w-full flex items-center gap-3 px-6 py-3 text-left transition-all duration-200 ${
                       lang === l
-                        ? 'bg-cyan-400/20 text-cyan-100 border-l-4 border-cyan-400'
+                        ? 'bg-blue-500/20 text-blue-200 border-l-4 border-blue-500'
                         : 'text-white/70 hover:bg-white/[0.08] hover:text-white/90 border-l-4 border-transparent'
                     }`}
                   >
-                    <svg className="w-5 h-5 text-cyan-300/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-blue-400/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span className="text-sm font-medium tracking-wide">
                       {LANGS[l].langName}
                     </span>
                     {lang === l && (
-                      <svg className="w-4 h-4 ml-auto text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-4 h-4 ml-auto text-blue-500" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     )}
@@ -476,7 +476,7 @@ function App() {
             className="w-full max-w-md sm:max-w-2xl relative px-4 sm:px-0"
           >
             {/* Glass Card - No Rotating Border */}
-            <div className="relative bg-[#0a0e27]/40 rounded-2xl border-[3px] border-cyan-400/25 shadow-[0_0_40px_rgba(56,189,248,0.15)]">
+            <div className="relative bg-[#0a0e27]/40 rounded-2xl border-[3px] border-blue-500/25 shadow-[0_0_40px_rgba(56,189,248,0.15)]">
               <GlassSurface
                 width="100%"
                 height="auto"
@@ -492,7 +492,7 @@ function App() {
                 greenOffset={10}
                 blueOffset={20}
                 className="glass-main-card"
-                style={{ border: 'none', boxShadow: '0 0 80px rgba(56, 189, 248, 0.06), inset 0 0 60px rgba(56, 189, 248, 0.02)' }}
+                style={{ border: 'none', boxShadow: '0 0 80px rgba(59, 130, 246, 0.06), inset 0 0 60px rgba(59, 130, 246, 0.02)' }}
               >
             <div className="flex flex-col items-center px-6 py-6 sm:px-10 sm:py-8 md:px-12 md:py-10 gap-3 sm:gap-6">
 
@@ -502,17 +502,17 @@ function App() {
               </h1>
 
               {/* Divider */}
-              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent" />
+              <div className="w-10 h-[1px] bg-gradient-to-r from-transparent via-blue-500/40 to-transparent" />
 
               {/* Tab Switcher: URL | File */}
               <div className="w-full">
-                <div className="flex rounded-lg overflow-hidden border-2 border-cyan-400/20 mb-3">
+                <div className="flex rounded-lg overflow-hidden border-2 border-blue-500/20 mb-3">
                   <button
                     onClick={() => { setInputMode('url'); clearFile(); setUrlError(''); }}
                     className={`flex-1 flex items-center justify-center gap-1 py-2.5 text-[9px] sm:text-[11px] uppercase tracking-wider font-medium transition-all duration-300 ${
                       inputMode === 'url'
-                        ? 'bg-cyan-400/20 text-cyan-100 border-r border-cyan-400/20'
-                        : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06] border-r border-cyan-400/20'
+                        ? 'bg-blue-500/20 text-blue-200 border-r border-blue-500/20'
+                        : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06] border-r border-blue-500/20'
                     }`}
                   >
                     <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -524,7 +524,7 @@ function App() {
                     onClick={() => { setInputMode('file'); setUrl(''); setUrlError(''); }}
                     className={`flex-1 flex items-center justify-center gap-1 py-2.5 text-[9px] sm:text-[11px] uppercase tracking-wider font-medium transition-all duration-300 ${
                       inputMode === 'file'
-                        ? 'bg-cyan-400/20 text-cyan-100'
+                        ? 'bg-blue-500/20 text-blue-200'
                         : 'bg-white/[0.03] text-white/40 hover:text-white/60 hover:bg-white/[0.06]'
                     }`}
                   >
@@ -554,7 +554,7 @@ function App() {
                       className={`w-full bg-white/[0.06] border-2 rounded-lg px-3 py-2 text-white text-[10px] sm:text-xs tracking-wide placeholder:text-white/30 focus:outline-none transition-all duration-300 font-normal ${
                         urlError 
                           ? 'border-red-400/50 focus:border-red-400/70' 
-                          : 'border-cyan-400/20 focus:border-cyan-400/50 focus:bg-white/[0.08] focus:shadow-[0_0_15px_rgba(56,189,248,0.1)]'
+                          : 'border-blue-500/20 focus:border-blue-500/50 focus:bg-white/[0.08] focus:shadow-[0_0_15px_rgba(56,189,248,0.1)]'
                       }`}
                     />
                     {urlError && (
@@ -584,7 +584,7 @@ function App() {
                       className="hidden"
                     />
                     {uploadedFile ? (
-                      <div className={`w-full flex items-center gap-2 px-3 py-2.5 border-2 rounded-lg ${isUploading ? 'bg-yellow-400/10 border-yellow-400/30' : 'bg-cyan-400/10 border-cyan-400/30'}`}>
+                      <div className={`w-full flex items-center gap-2 px-3 py-2.5 border-2 rounded-lg ${isUploading ? 'bg-yellow-400/10 border-yellow-400/30' : 'bg-blue-500/10 border-blue-500/30'}`}>
                         {isUploading ? (
                           <svg className="w-4 h-4 text-yellow-300/80 shrink-0 animate-spin" fill="none" viewBox="0 0 24 24">
                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
@@ -595,7 +595,7 @@ function App() {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                           </svg>
                         )}
-                        <span className={`text-[11px] truncate flex-1 ${isUploading ? 'text-yellow-100/90' : 'text-cyan-100/90'}`}>
+                        <span className={`text-[11px] truncate flex-1 ${isUploading ? 'text-yellow-100/90' : 'text-blue-200/90'}`}>
                           {isUploading ? t.uploading : uploadedFile.name}
                         </span>
                         <button
@@ -613,14 +613,14 @@ function App() {
                         onClick={() => fileInputRef.current?.click()}
                         className={`w-full flex flex-col items-center justify-center gap-2 px-3 py-5 border-2 border-dashed rounded-lg transition-all duration-300 cursor-pointer ${
                           isDragging
-                            ? 'bg-cyan-400/20 border-cyan-400/60 scale-[1.02]'
-                            : 'bg-white/[0.03] border-white/15 hover:bg-white/[0.06] hover:border-cyan-400/30'
+                            ? 'bg-blue-500/20 border-blue-500/60 scale-[1.02]'
+                            : 'bg-white/[0.03] border-white/15 hover:bg-white/[0.06] hover:border-blue-500/30'
                         }`}
                       >
-                        <svg className={`w-6 h-6 transition-colors ${isDragging ? 'text-cyan-300/90' : 'text-cyan-300/40 group-hover:text-cyan-300/70'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className={`w-6 h-6 transition-colors ${isDragging ? 'text-blue-400/90' : 'text-blue-400/40 group-hover:text-blue-400/70'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                         </svg>
-                        <span className={`text-[11px] transition-colors ${isDragging ? 'text-cyan-100/90' : 'text-white/40 hover:text-white/70'}`}>
+                        <span className={`text-[11px] transition-colors ${isDragging ? 'text-blue-200/90' : 'text-white/40 hover:text-white/70'}`}>
                           {isDragging ? 'Drop file here' : t.dragOrClick}
                         </span>
                         <span className="text-[8px] text-white/20">{t.supportedFiles}</span>
@@ -669,7 +669,7 @@ function App() {
               <button
                 onClick={generateQR}
                 disabled={!url.trim() || isGenerating || isUploading}
-                className="w-full px-6 py-2.5 border-2 border-cyan-400/30 text-[10px] tracking-[0.15em] uppercase text-cyan-100/80 font-medium hover:text-white hover:border-cyan-400/50 hover:bg-cyan-400/10 hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed rounded-md active:scale-95"
+                className="w-full px-6 py-2.5 border-2 border-blue-500/30 text-[10px] tracking-[0.15em] uppercase text-blue-200/80 font-medium hover:text-white hover:border-blue-500/50 hover:bg-blue-500/10 hover:shadow-[0_0_20px_rgba(56,189,248,0.1)] transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed rounded-md active:scale-95"
               >
                 {isGenerating ? t.generating : t.generate}
               </button>
@@ -685,7 +685,7 @@ function App() {
                     className="w-full"
                   >
                     <div className="flex items-center justify-between mb-2 sm:mb-3">
-                      <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-cyan-300/30">
+                      <span className="text-[9px] sm:text-[10px] tracking-[0.2em] uppercase text-blue-400/30">
                         {t.processing}
                       </span>
                       <motion.span
@@ -695,12 +695,12 @@ function App() {
                         className="text-xl sm:text-2xl font-extralight text-cyan-200/80 tabular-nums"
                       >
                         {progress}
-                        <span className="text-xs sm:text-sm text-cyan-300/30 ml-0.5">%</span>
+                        <span className="text-xs sm:text-sm text-blue-400/30 ml-0.5">%</span>
                       </motion.span>
                     </div>
                     <div className="h-[1px] bg-white/[0.06] w-full overflow-hidden rounded-full">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-cyan-400/40 to-cyan-300/60"
+                        className="h-full bg-gradient-to-r from-blue-500/40 to-blue-400/60"
                         initial={{ width: '0%' }}
                         animate={{ width: `${progress}%` }}
                         transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -720,14 +720,14 @@ function App() {
                     transition={{ duration: 0.6, ease: 'easeOut' }}
                     className="flex flex-col items-center gap-4"
                   >
-                    <div className="p-4 sm:p-5 border-2 border-cyan-400/15 bg-white/[0.03] rounded-xl shadow-[0_0_30px_rgba(56,189,248,0.08)]">
+                    <div className="p-4 sm:p-5 border-2 border-blue-500/15 bg-white/[0.03] rounded-xl shadow-[0_0_30px_rgba(56,189,248,0.08)]">
                       <img
                         src={qrDataUrl}
                         alt="QR Code"
                         className="w-44 h-44 sm:w-52 sm:h-52 md:w-60 md:h-60 rounded-lg"
                       />
                     </div>
-                    <p className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-cyan-300/30 text-center font-medium">
+                    <p className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-blue-400/30 text-center font-medium">
                       {STYLE_NAMES[lang][selectedStyle.key]}
                     </p>
                     {/* Action Buttons */}
@@ -737,7 +737,7 @@ function App() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         onClick={downloadQR}
-                        className="group relative px-8 sm:px-10 py-3 sm:py-3.5 border-2 border-cyan-400/40 bg-cyan-400/5 text-[11px] sm:text-xs tracking-[0.25em] uppercase text-cyan-100 font-semibold hover:text-white hover:border-cyan-400/60 hover:bg-cyan-400/15 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)] transition-all duration-500 rounded-lg overflow-hidden"
+                        className="group relative px-8 sm:px-10 py-3 sm:py-3.5 border-2 border-blue-500/40 bg-blue-500/5 text-[11px] sm:text-xs tracking-[0.25em] uppercase text-blue-200 font-semibold hover:text-white hover:border-blue-500/60 hover:bg-blue-500/15 hover:shadow-[0_0_25px_rgba(56,189,248,0.2)] transition-all duration-500 rounded-lg overflow-hidden"
                       >
                         <span className="relative z-10 flex items-center gap-2">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -745,7 +745,7 @@ function App() {
                           </svg>
                           {t.download}
                         </span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/0 via-cyan-400/10 to-cyan-400/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/10 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       </motion.button>
                       <motion.button
                         initial={{ opacity: 0, y: 10 }}
@@ -775,7 +775,7 @@ function App() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-lg sm:text-xl md:text-2xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase text-cyan-300"
+                    className="text-lg sm:text-xl md:text-2xl font-extralight tracking-[0.15em] sm:tracking-[0.2em] uppercase text-blue-400"
                   >
                     <DecryptedText
                       text={t.completed}
@@ -798,7 +798,7 @@ function App() {
                   href="https://github.com/IsabekSultonbekov" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-[8px] sm:text-[9px] tracking-[0.3em] uppercase text-white/20 hover:text-cyan-300/40 font-extralight transition-all duration-300"
+                  className="group inline-flex items-center gap-2 text-[8px] sm:text-[9px] tracking-[0.3em] uppercase text-white/20 hover:text-blue-400/40 font-extralight transition-all duration-300"
                 >
                   <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-0 group-hover:opacity-100 transition-opacity" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -821,3 +821,4 @@ function App() {
 }
 
 export default App;
+
