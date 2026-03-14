@@ -712,19 +712,19 @@ function App() {
                       {STYLE_NAMES[lang][selectedStyle.key]}
                     </p>
                     {/* Action Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-3 w-full">
+                    <div className="flex flex-row gap-3 w-full">
                       <motion.button
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
                         onClick={downloadQR}
-                        className="group relative px-10 py-4 border-2 border-blue-500/50 bg-blue-500/15 text-sm tracking-[0.2em] uppercase text-white font-bold hover:text-white hover:border-blue-500/70 hover:bg-blue-500/25 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-500 rounded-lg overflow-hidden active:scale-95"
+                        className="group relative flex-1 aspect-square flex items-center justify-center border-2 border-blue-500/50 bg-blue-500/15 text-xs tracking-[0.15em] uppercase text-white font-bold hover:text-white hover:border-blue-500/70 hover:bg-blue-500/25 hover:shadow-[0_0_30px_rgba(59,130,246,0.4)] transition-all duration-500 rounded-xl overflow-hidden active:scale-95"
                       >
-                        <span className="relative z-10 flex items-center gap-2.5">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="relative z-10 flex flex-col items-center gap-2">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                           </svg>
-                          {t.download}
+                          <span className="text-[10px]">{t.download}</span>
                         </span>
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-500/20 to-blue-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       </motion.button>
@@ -733,13 +733,13 @@ function App() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.3 }}
                         onClick={resetForm}
-                        className="group relative px-10 py-4 border-2 border-white/30 bg-white/[0.05] text-sm tracking-[0.2em] uppercase text-white/80 font-bold hover:text-white hover:border-white/50 hover:bg-white/[0.12] transition-all duration-500 rounded-lg overflow-hidden active:scale-95"
+                        className="group relative flex-1 aspect-square flex items-center justify-center border-2 border-white/30 bg-white/[0.05] text-xs tracking-[0.15em] uppercase text-white/80 font-bold hover:text-white hover:border-white/50 hover:bg-white/[0.12] transition-all duration-500 rounded-xl overflow-hidden active:scale-95"
                       >
-                        <span className="relative z-10 flex items-center gap-2.5">
-                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span className="relative z-10 flex flex-col items-center gap-2">
+                          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                           </svg>
-                          {t.createAnother}
+                          <span className="text-[10px]">{t.createAnother}</span>
                         </span>
                         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                       </motion.button>
